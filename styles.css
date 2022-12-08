@@ -1,0 +1,317 @@
+* {
+  color: #000000;
+  background-color: #FFFFFF;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.header h1 {
+    font-size: 30px;
+    border-bottom: 2px solid #3FC973;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.navbar-title {
+    color: #000000;
+}
+
+.nav-item {
+    background-color: #3FC973;
+}
+
+.imgContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+    
+.imgContainer img {
+    border: 4px solid #3FC973;
+    border-radius: 8px;
+    max-width: 75%;
+}
+
+.scheduleButtonContainer {
+  margin: 20px;
+  background-color: #FFFFFF;
+}
+
+.scheduleButton {
+    border-radius: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: #1FB6FF;
+    font-family: "Lucida Handwriting";
+}
+
+.missionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.missionContainer h2,
+.ecocontainer h2,
+.priceContainer h2,
+.contactContainer h2,
+.dateContainer h2,
+.nextApptContainer h2,
+.carsContainer h2 {
+  font-size: 24px;
+  border-bottom: 2px solid #3FC973;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.missionImgAndText {
+  margin: 20px;
+}
+
+.missionImgAndText p {
+  font-size: 18px;
+  
+}
+
+.missionImgAndText img {
+  max-width: 50%;
+  max-height: 150px;
+  border: 4px solid #3FC973;
+  border-radius: 8px;
+}
+
+.imgFloatRight {
+  float: right;
+  margin-left: 5px;
+}
+
+.imgFloatLeft {
+  float: left;
+  margin-right: 5px;
+}
+
+.ecocontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 75%;
+}
+
+.ecocontainer p {
+  font-size: 18px;
+  
+}
+
+.forestImg {
+  max-width: 90%;
+  border: 4px solid #3FC973;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceContainer h3 {
+  font-size: 20px;
+  font-family: "Lucida Handwriting";
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.contactimg {
+  max-width: 20px;
+}
+
+.nextApptContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+#noCarsLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+select option{
+  font-size: 15px;
+}
+
+.carSelectContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.saveApptBtn {
+  margin-top: 10px;
+  border-radius: 8px;
+  background-color: #D3D3D3;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.addBtn {
+  border-radius: 8px;
+  background-color: #D3D3D3;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.carsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.invalidLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.invalidLogin label {
+  color: #F75757;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 40px;
+  background-color: #3FC973;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  flex-direction: column;
+}
+
+.footer-item {
+  display: flex;
+  background-color: #3FC973;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-item a {
+  color: #000000;
+  background-color: #3FC973;
+  font-size: 60%;
+}
+
+@media only screen and (min-width: 768px) {
+  .desktopPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 70%;
+  }
+  
+  #indexp1 {
+    margin-bottom: 60px;
+  }
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.loginbtn,
+.signupbtn {
+  border-radius: 8px;
+  background-color: #D3D3D3;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Add padding to containers */
+.logincontainer {
+  padding: 16px;
+}

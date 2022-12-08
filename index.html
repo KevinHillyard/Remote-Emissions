@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Remote Emissions Checks</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    </head>
+
+    <nav id="navbarContainer" class="navbar navbar-light" style="background-color: #3FC973;">
+        <a class="navbar-title">RemoteEmissions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a id='home-link' class="nav-link" href="#">Home | About Us<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a id='contact-link' class="nav-link" href="pages/contact.html">Contact Us</a>
+                </li>
+                <li class="nav-item active">
+                    <a id='login-logout-index' class="nav-link" href="pages/login.html">Login</a>
+                </li>
+                <li id='last-nav-item-index' class="nav-item active">
+                    <a class="nav-link" href="pages/signup.html">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <body>
+        <div class='desktopPage'>
+            <div class='page'>
+                <div class='header'>
+                    <h1>DIEHL EMISSIONS CHECK</h1>
+                    <div class='imgContainer'>
+                        <img src='images/emission-testing_sign.jpg'/>
+                    </div>
+                </div>
+                
+                <div class='scheduleButtonContainer'>
+                    <button class='scheduleButton' onclick="directToLoginOrSchedule()">SCHEDULE AN APPOINTMENT</button>
+                </div>
+                
+                <div class='missionContainer'>
+                    <h2>Our Purpose</h2>
+                    <div class='missionImgAndText'>
+                        <img class='imgFloatRight' src='images/car_emissions.jpg'/>
+                        <p id='indexp1'>If you are like us then you have never enjoyed the process of getting your emissions checked.
+                        Having to leave your car for, on average, 2 hours for a check that takes about 10 minutes was never ideal.
+                        We knew there had to be a better way, and now there is!</p>
+                        <img class='imgFloatLeft' src='images/leaf_car.jpg'/>
+                        <p id='indexp2'>With us you can sign up and schedule an appointment and we will come to you!
+                        We can check your emissions at the comfort of your own home in a process that takes less than 15 minutes!
+                        Sign up today and schedule your next emissions check with us without all of the hassle of leaving your car at the shop!</p>
+                    </div>
+                </div>
+                
+                 <div class='priceContainer'>
+                    <h2>PRICING</h2>
+                    <h3>$20 Service per Vehicle Checked</h3>
+                </div>
+                
+                <br>
+                
+                <div class='ecocontainer'>
+                    <h2>Environment Care</h2>
+                    <img class='forestImg' src='images/forest_road.jpg'/>
+                    <p>We love cars, but we also love our environment. Help us help you ensure that your car passes the emissions test and help keep our air clean!</p>
+                </div>
+                
+                 <br><br>
+                
+                <div class='footer'>
+                    <div class='footer-item'>
+                        <a target='_blank' href='https://github.com/KevinHillyard/Remote-Emissions'>Link to Github</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script>
+        
+            function setPaths(username) {
+                let contactLink = document.getElementById('contact-link');
+                contactLink.href = "pages/contact.html?username=" + username;
+            }
+            
+            const start = async() => {
+                let logInOut = document.getElementById('login-logout-index');
+                let lastNavItem = document.getElementById('last-nav-item-index');
+                try {
+                    const response = await axios.get("http://ec2-184-72-8-239.us-west-1.compute.amazonaws.com:3000/api/loggedin/"+username);
+                    if (response.status === 200) {
+                        lastNavItem.remove();
+                        logInOut.href = "#";
+                        logInOut.textContent = "Logout";
+                        logInOut.onclick = function() {
+                            axios.delete("http://ec2-184-72-8-239.us-west-1.compute.amazonaws.com:3000/api/logout/"+username);
+                            window.location.href = "http://ec2-184-72-8-239.us-west-1.compute.amazonaws.com:3001/";
+                        };
+                    }
+                } catch(error) {
+                    
+                }
+                
+            };
+            
+            const directToLoginOrSchedule = async() => {
+               
+                try {
+                    const response = await axios.get("http://ec2-184-72-8-239.us-west-1.compute.amazonaws.com:3000/api/loggedin/"+username);
+                    if (response.status === 200) {
+                         window.location.href = "pages/schedule.html?username="+username;
+                    }
+                    else {
+                        window.location.href = "pages/login.html";
+                    }
+                } catch(error) {
+                    window.location.href = "pages/login.html";
+                }
+                
+            }
+            const queryString = window.location.search;
+            console.log(queryString);
+            const urlParams = new URLSearchParams(queryString);
+            const username = urlParams.get('username')
+            if ((username != null) && (username != undefined) && (username != "")) {
+                setPaths(username);
+            }
+            start();
+        </script>
+    </body>
+</html>
